@@ -3,6 +3,13 @@ const fs = require('fs');
 var authToken = "";
 var binCalendar = [];
 
+function dateToYMD(date) {
+  var d = date.getDate();
+  var m = date.getMonth() + 1; //Month from 0 to 11
+  var y = date.getFullYear();
+  return '' + y + (m<=9 ? '0' + m : m) + (d <= 9 ? '0' + d : d);
+}
+
 //login
   fetch("https://www.fife.gov.uk/api/citizen?preview=false&locale=en", {
     "headers": {
@@ -26,6 +33,8 @@ var binCalendar = [];
   }).then(r2=>r2.json())
   .then(data => {
       let binCalendar = data.data.tab_collections;
+
+      console.log(binCalendar);
       let fileContents = "";
     
       fileContents+= "BEGIN:VCALENDAR\n";
@@ -34,15 +43,15 @@ var binCalendar = [];
 
       for(var i=0;i<binCalendar.length;i++) {
         var date = new Date(binCalendar[i].date);
-        let dateString = (date.toISOString().split('T')[0]).toString();   
+        let dateString = dateToYMD(date);   
         fileContents+= "BEGIN:VEVENT\n";
         fileContents+= "SUMMARY: "+binCalendar[i].colour+" Bin\n";
-        fileContents+= "DTSTART;VALUE=DATE:"+dateString.replace(/-/g, '')+"\n";
+        fileContents+= "DTSTART:"+dateString.replace(/-/g, '')+"\n";
         fileContents+= "UID: "+(dateString+"_BinCalender_").padEnd(36,"0")+"\n";
         fileContents+= "END:VEVENT"+"\n"; 
       }
     
-      fileContents+= "END:VCALENDAR\n" ;
+      fileContents+= "END:VCALENDAR\n";
 
       fs.writeFileSync('bincalendar.ics', fileContents);
       console.log("Written ical calendar to bincalendar.ics");
