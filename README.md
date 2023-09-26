@@ -6,9 +6,9 @@ The project consists of two parts.
 
 ## getCalender.js
 
-This is a nodejs script which connects to Fife Council and downloads a json calendar for a particular property using a upid. The downloaded json is then converted into an icalendar format and saved to disk.
+This is a nodejs script which connects to Fife Council and downloads a json calendar for a particular property using a uprn. The downloaded json is then converted into an icalendar format and saved to disk.
 
-> The upid must be retrieved using the chrome developer tools when using the real web site. The upid will be visible in the network tab. 
+> The uprn must be retrieved using the chrome developer tools when using the real web site. The upid will be visible in the network tab. 
 
 This script is best run on a weekly basis using cron so that the calendar updates every week with newly published collections.
 
