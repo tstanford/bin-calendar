@@ -1,5 +1,9 @@
 # bin-calendar
 
+> Fife Council Bin Calendar client and icalendar server.
+
+## Summary
+
 This project is to expose a bin collection calendar as a icalendar url which can be directly imported into the likes of google calendar using just a url.
 
 The project consists of two parts.
