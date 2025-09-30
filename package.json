@@ -1,0 +1,24 @@
+{
+  "name": "bin-calendar",
+  "version": "1.0.0",
+  "description": "> Fife Council Bin Calendar client and icalendar server.",
+  "homepage": "https://github.com/tstanford/bin-calendar#readme",
+  "bugs": {
+    "url": "https://github.com/tstanford/bin-calendar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tstanford/bin-calendar.git"
+  },
+  "license": "ISC",
+  "author": "Tim Stanford",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
