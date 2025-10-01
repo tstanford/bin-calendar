@@ -7,6 +7,17 @@ pipeline {
         IMAGE_TAG = 'latest'
     }
     stages {
+
+        stage("Increment version") {
+            steps {
+                int buildnumber = new File('buildnumber').text as int
+                buildnumber++
+                echo buildnumber
+                new File('buildnumber') << buildnumber
+            }
+        }
+
+
         stage('Build and Push Docker Image') {
             steps {
                 script {
