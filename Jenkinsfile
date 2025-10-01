@@ -1,4 +1,4 @@
-node {
+pipeline {
     def app
 
     stages {
@@ -6,7 +6,6 @@ node {
             stage('Build image') {
                 /* This builds the actual image; synonymous to
                 * docker build on the command line */
-
 
                 steps {
                     echo 'Docker build app'
