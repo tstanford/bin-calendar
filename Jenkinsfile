@@ -2,9 +2,9 @@ pipeline {
     agent any
     environment {
         // Define Docker Hub credentials ID stored in Jenkins credentials store
-        DOCKERHUB_CREDENTIALS = 'dockerHubCredentials' 
-        IMAGE_NAME = 'bin-calendar'
-        IMAGE_TAG = '1.0.'+${BUILD_NUMBER}
+        DOCKERHUB_CREDENTIALS = "dockerHubCredentials" 
+        IMAGE_NAME = "bin-calendar"
+        IMAGE_TAG = "1.0.${BUILD_NUMBER}"
     }
     stages {
 
