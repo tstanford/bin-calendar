@@ -7,7 +7,17 @@ node {
                 /* This builds the actual image; synonymous to
                 * docker build on the command line */
 
-                app = docker.build("tjstanford/bin-calendar:latest")
+
+                steps {
+                    echo 'Docker build app'
+                    script{
+                        docker.withRegistry('',DOCKER_PASS ) {
+                            docker_image = docker.build "${IMAGE_NAME}"
+                            docker_image.push("${IMAGE_TAG}")
+                            docker_image.push("latest")
+                        }
+                    }
+                }
             }
 
             stage('Test image') {
