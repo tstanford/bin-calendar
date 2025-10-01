@@ -9,9 +9,9 @@ class BinCalendarGenerator {
 
   constructor(){}
 
-  async generate(){
+  async generate(uprn){
     const authToken = await this.login();
-    const binCalendar = await this.getCalendar("320130641", authToken);
+    const binCalendar = await this.getCalendar(uprn, authToken);
     const ical = this.convertToCalendar(binCalendar);
     return ical;
   }

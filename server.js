@@ -6,12 +6,22 @@ const path = require('path')
 const app = express()
 const port = 8080
 
-app.get("/" , (req,res) => {
-  const data = calendar.generate().then(data => {
+const uprnList = {
+  tim : 320130641,
+  kim : 320000142
+};
+
+app.get("/:person" , (req,res) => {
+  if((req.params["person"] in uprnList) == false){
+    res.status(404).send();
+    return;
+  }
+
+  const data = calendar.generate(uprnList[req.params["person"]]).then(data => {
     res.send(data);
   }).catch((error) => {
     console.log(error);
-});;
+  });
   
 });
 
