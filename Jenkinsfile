@@ -16,7 +16,7 @@ pipeline {
                         sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
                         // Build Docker image
                         // Push Docker image to Docker Hub
-                        sh "docker push ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
+                        sh "docker push hub.docker.com/${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
                     }
                 }
             }
