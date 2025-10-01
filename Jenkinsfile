@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker }
+    agent any
     environment {
         // Define Docker Hub credentials ID stored in Jenkins credentials store
         DOCKERHUB_CREDENTIALS = 'dockerHubCredentials' 
