@@ -3,7 +3,7 @@ pipeline {
     environment {
         // Define Docker Hub credentials ID stored in Jenkins credentials store
         DOCKERHUB_CREDENTIALS = 'dockerHubCredentials'  #replace with your id name
-        IMAGE_NAME = 'tjstanford/bin-calendar'
+        IMAGE_NAME = 'bin-calendar'
         IMAGE_TAG = 'latest'
     }
     stages {
