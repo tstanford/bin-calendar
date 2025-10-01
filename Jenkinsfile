@@ -10,10 +10,12 @@ pipeline {
 
         stage("Increment version") {
             steps {
-                int buildnumber = new File('buildnumber').text as int
-                buildnumber++
-                echo buildnumber
-                new File('buildnumber') << buildnumber
+                script {
+                    int buildnumber = new File('buildnumber').text as int
+                    buildnumber++
+                    echo buildnumber
+                    new File('buildnumber') << buildnumber
+                }
             }
         }
 
