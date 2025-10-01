@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'kalithekitsune/jenkins-agent-docker:latest'
+        }
+    }
     environment {
         // Define Docker Hub credentials ID stored in Jenkins credentials store
         DOCKERHUB_CREDENTIALS = 'dockerHubCredentials' 
