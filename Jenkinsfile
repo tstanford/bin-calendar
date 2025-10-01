@@ -4,21 +4,9 @@ pipeline {
         // Define Docker Hub credentials ID stored in Jenkins credentials store
         DOCKERHUB_CREDENTIALS = 'dockerHubCredentials' 
         IMAGE_NAME = 'bin-calendar'
-        IMAGE_TAG = 'latest'
+        IMAGE_TAG = '1.0.'+${BUILD_NUMBER}
     }
     stages {
-
-        stage("Increment version") {
-            steps {
-                script {
-                    int buildnumber = new File('buildnumber').text as int
-                    buildnumber++
-                    echo buildnumber
-                    new File('buildnumber') << buildnumber
-                }
-            }
-        }
-
 
         stage('Build and Push Docker Image') {
             steps {
