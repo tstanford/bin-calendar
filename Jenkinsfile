@@ -1,45 +1,30 @@
 pipeline {
-    def docker_image
-
+    agent any
+    environment {
+        // Define Docker Hub credentials ID stored in Jenkins credentials store
+        DOCKERHUB_CREDENTIALS = 'dockerHubCredentials'  #replace with your id name
+        IMAGE_NAME = 'tjstanford/bin-calendar'
+        IMAGE_TAG = 'latest'
+    }
     stages {
-        
-            stage('Build image') {
-                /* This builds the actual image; synonymous to
-                * docker build on the command line */
-
-                steps {
-                    echo 'Docker build app'
-                    script{
-                        docker.withRegistry('',DOCKER_PASS ) {
-                            docker_image = docker.build "${IMAGE_NAME}"
-                            docker_image.push("${IMAGE_TAG}")
-                            docker_image.push("latest")
-                        }
-                    }
-                }
-            }
-
-            stage('Test image') {
-                /* Ideally, we would run a test framework against our image.
-                * For this example, we're using a Volkswagen-type approach ;-) */
-
+        stage('Build and Push Docker Image') {
+            steps {
                 script {
-                    docker_image.inside {
-                        sh 'echo "Tests passed"'
+                    // Load Docker Hub credentials from Jenkins credentials store
+                    withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS, usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                        // Login to Docker Hub
+                        sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+                        // Build Docker image
+                        // Push Docker image to Docker Hub
+                        sh "docker push ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
                     }
                 }
             }
-        
-        
-            // stage('Build') { 
-            //     steps {
-            //         sh "docker build -t tjstanford/bin-calendar:latest ."
-            //     }
-            // }
-            // stage("Push To Registry") {
-            //     steps {
-            //         sh "docker push tjstanford/bin-calendar:latest"
-            //     }
-            // }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline finished'
+        }
     }
 }
