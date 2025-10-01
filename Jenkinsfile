@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { node { label 'agent-dind' } }
     environment {
         // Define Docker Hub credentials ID stored in Jenkins credentials store
         DOCKERHUB_CREDENTIALS = 'dockerHubCredentials' 
