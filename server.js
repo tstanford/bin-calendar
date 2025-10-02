@@ -35,5 +35,5 @@ app.get("uprn/:uprn" , (req,res) => {
 });
 
 app.listen(port, () => {
-    console.log(`BinCalendar Server listening on port ${port}`)
+    console.log(`Fife Council Bin Calendar Server listening on port ${port}`)
   });
