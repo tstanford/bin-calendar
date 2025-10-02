@@ -1,0 +1,7 @@
+.git
+kubernetes
+node_modules
+test
+.gitignore
+Jenkinsfile
+README.md
