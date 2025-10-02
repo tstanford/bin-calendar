@@ -26,7 +26,7 @@ app.get("/:person" , (req,res) => {
 });
 
 app.get("/uprn/:uprn" , (req,res) => {
-  calendar.generate(uprnList[req.params["uprn"]]).then(data => {
+  calendar.generate(req.params["uprn"]).then(data => {
     res.send(data);
   }).catch((error) => {
     console.log(error);
