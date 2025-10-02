@@ -1,0 +1,52 @@
+[
+    {
+        "colour": "Brown",
+        "date": "Wednesday, October 8, 2025",
+        "type": "Food and Garden Waste / Brown Bin"
+    },
+    {
+        "colour": "Blue",
+        "date": "Wednesday, October 8, 2025",
+        "type": "Landfill / Blue Bin"
+    },
+    {
+        "colour": "Green",
+        "date": "Wednesday, October 15, 2025",
+        "type": "Cans and Plastics / Green Bin"
+    },
+    {
+        "colour": "Brown",
+        "date": "Wednesday, October 22, 2025",
+        "type": "Food and Garden Waste / Brown Bin"
+    },
+    {
+        "colour": "Blue",
+        "date": "Wednesday, October 22, 2025",
+        "type": "Landfill / Blue Bin"
+    },
+    {
+        "colour": "Grey",
+        "date": "Wednesday, October 29, 2025",
+        "type": "Paper and Cardboard / Grey Bin"
+    },
+    {
+        "colour": "Blue",
+        "date": "Wednesday, November 5, 2025",
+        "type": "Landfill / Blue Bin"
+    },
+    {
+        "colour": "Green",
+        "date": "Wednesday, November 12, 2025",
+        "type": "Cans and Plastics / Green Bin"
+    },
+    {
+        "colour": "Brown",
+        "date": "Wednesday, November 19, 2025",
+        "type": "Food and Garden Waste / Brown Bin"
+    },
+    {
+        "colour": "Blue",
+        "date": "Wednesday, November 19, 2025",
+        "type": "Landfill / Blue Bin"
+    }
+]
