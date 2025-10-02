@@ -21,6 +21,7 @@ app.get("/:person" , (req,res) => {
     res.send(data);
   }).catch((error) => {
     console.log(error);
+    res.status(500).send();
   });
   
 });
@@ -30,6 +31,8 @@ app.get("/uprn/:uprn" , (req,res) => {
     res.send(data);
   }).catch((error) => {
     console.log(error);
+    res.status(500).send();
+    return;
   });
   
 });
