@@ -26,7 +26,7 @@ docker run --restart always -p 8080:8080 -d tjstanford/bin-calendar:1.1.46
 
 You will now need to open your firewall to point to the endpoint
 
-You can import the calendar into google calendar using the url e.g. `http://111.222.333.444:8080/uprn/[uprn of your fife property]`
+You can import the calendar into google calendar using the following url e.g. `http://[your public ip]:8080/uprn/[uprn of your fife property]`
 
 To lookup your uprn, you can use the following service: 
 - https://www.findmyaddress.co.uk/search
