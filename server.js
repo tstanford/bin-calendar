@@ -26,5 +26,5 @@ app.get("/:person" , (req,res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`BinCalendar Server listening on port ${port}`)
   });

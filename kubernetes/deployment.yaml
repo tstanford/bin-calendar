@@ -25,5 +25,5 @@ spec:
       - name: bin-calendar
         image: tjstanford/bin-calendar:${TAG}
         ports:
-        - containerPort: 8000
+        - containerPort: 8080
 
