@@ -4,7 +4,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = "dockerHubCredentials" 
         KUBECONFIG = "/var/jenkins_home/.kube/config"
         IMAGE_NAME = "bin-calendar"
-        IMAGE_TAG = "1.0.${BUILD_NUMBER}"
+        IMAGE_TAG = "1.1.${BUILD_NUMBER}"
     }
     stages {
 
