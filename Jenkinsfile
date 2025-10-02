@@ -27,8 +27,8 @@ pipeline {
                 script {
                     withEnv(["KUBECONFIG=${KUBECONFIG}"]) {                        
                         sh "sed -i 's|\${TAG}|${IMAGE_TAG}|' deployment.yaml"
-                        sh "kubectl apply -f deployment.yaml"
-                        sh "kubectl apply -f service.yaml"
+                        sh "kubectl apply -f kubernetes/deployment.yaml"
+                        sh "kubectl apply -f kubernetes/service.yaml"
                     }
                 }
             }
