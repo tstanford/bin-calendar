@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns-bin-calendar
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bin-calendar
+  namespace: ns-bin-calendar
+  labels:
+    app: bin-calendar
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bin-calendar
+  template:
+    metadata:
+      labels:
+        app: bin-calendar
+    spec:
+      containers:
+      - name: bin-calendar
+        image: tjstanford/bin-calendar:${TAG}
+        ports:
+        - containerPort: 8000
+
