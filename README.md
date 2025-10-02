@@ -2,34 +2,31 @@
 
 > Fife Council Bin Calendar client and icalendar server.
 
-
-## lookup urpn 
-
-https://www.findmyaddress.co.uk/
-
 ## Summary
 
-This project is to expose a bin collection calendar as a icalendar url which can be directly imported into the likes of google calendar using just a url.
+The purpose of this project is to expose a bin collection calendar in the icalendar format via a url. This calendar can be directly imported into google calendar and other calendar software using just the url.
 
-The project consists of two parts.
+## Why
 
-## getBinDates.js
+The bin calendar in Fife does not have a download option for importing into google calendar. The dates available are only 8 weeks into the future so even if there was an option to download. It would be out of date in 8 weeks time.
 
-This is a nodejs script which connects to Fife Council and downloads a json calendar for a particular property using a uprn. The downloaded json is then converted into an icalendar format and saved to disk.
+The lack of this feature has inspired me to create my own solution and expose the endpoint to the public internet.
 
-> The uprn must be retrieved using the chrome developer tools when using the real web site. The upid will be visible in the network tab. 
+## How to install
 
-This script is best run on a weekly basis using cron so that the calendar updates every week with newly published collections.
+The project is designed to be run in a docker container. I do my build using Jenkins and deploy to my own self hosted kubernetes cluster. I expose the service to the internet and point a domain name DNS record to the public IP address.
 
-## server.js
+I do have a ready built docker image that can be used
 
-A very simple nodejs application which exposes the calendar via an http server. The http server should be accessibly from the internet. Using the URL along, the calendar can be added to google calendar.
+Run the following: 
 
-## My deployment
+```
+docker run --restart always -p 8080:8080 -d tjstanford/bin-calendar:1.1.46
+```
 
-I run my setup on a raspberry pi 4. I have getBinDates.js running at 5:15am every monday and the server is running on the same pi. I use ngrok to expose it to the internet rather than open up the firewall.
+You will now need to open your firewall to point to the endpoint
 
+You can import the calendar into google calendar using the url e.g. `http://111.222.333.444:8080/uprn/[uprn of your fife property]`
 
-
-
-
+To lookup your uprn, you can use the following service: 
+- https://www.findmyaddress.co.uk/search
