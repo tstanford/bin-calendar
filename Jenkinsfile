@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
+        stage('Helm Deployment') {
             steps {
                 script {
                     withEnv(["KUBECONFIG=${KUBECONFIG}"]) {  
@@ -41,9 +41,7 @@ pipeline {
         //         script {
         //             withEnv(["KUBECONFIG=${KUBECONFIG}"]) {  
         //                 sh "curl https://get.helm.sh/helm-v3.19.0-linux-amd64.tar.gz | tar zxf - "
-        //                 //sh "linux-amd64/helm install bin-calendar ./helmchart --set image.tag=${IMAGE_TAG}"
-        //                 sh "linux-amd64/helm install helmchart-1759612555 ./helmchart --set image.tag=${IMAGE_TAG}"
-
+        //                 sh "linux-amd64/helm upgrade --install bin-calendar ./helmchart --set image.tag=${IMAGE_TAG}"
         //             }
         //         }
         //     }
