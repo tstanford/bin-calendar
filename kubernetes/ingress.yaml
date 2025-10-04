@@ -1,0 +1,19 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: sparky-site
+#   namespace: sparky
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: www.timcloud.uk
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: sparky-site
+#             port:
+#               number: 80
+
