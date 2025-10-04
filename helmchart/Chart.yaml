@@ -1,5 +1,7 @@
 apiVersion: v2
-name: bin-calendar-chart
+name: bin-calendar
 description: A helm chart for deploying the bin-calendar application
+sources:
+  - https://github.com/tstanford/bin-calendar
 type: application
 version: 0.1.0
