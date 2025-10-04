@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        // stage('Deploy to Kubernetes') {
+        // stage('Deploy to Kubernetes using manifest') {
         //     steps {
         //         script {
         //             withEnv(["KUBECONFIG=${KUBECONFIG}"]) {  
