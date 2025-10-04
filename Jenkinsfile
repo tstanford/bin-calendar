@@ -26,11 +26,9 @@ pipeline {
             steps {
                 script {
                     withEnv(["KUBECONFIG=${KUBECONFIG}"]) {  
-                        sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
-                        sh 'chmod u+x ./kubectl'                      
-                        sh "sed -i 's|\${TAG}|${IMAGE_TAG}|' kubernetes/deployment.yaml"
-                        sh "./kubectl apply -f kubernetes/deployment.yaml"
-                        sh "./kubectl apply -f kubernetes/service.yaml"
+                        sh "curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash"
+                        sh "helm install --generate-name ./helmchart --set image.tag=${IMAGE_TAG}"
+
                     }
                 }
             }

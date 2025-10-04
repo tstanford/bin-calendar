@@ -8,6 +8,6 @@ spec:
     app: bin-calendar
   ports:
     - protocol: TCP
-      port: 8085
-      targetPort: 8080
+      port: {{ .Values.port.source }}
+      targetPort: {{ .Values.port.target }}
   type: LoadBalancer

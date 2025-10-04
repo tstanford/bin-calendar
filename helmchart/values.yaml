@@ -1,0 +1,7 @@
+image:
+  name: tjstanford/bin-calendar
+  tag: 1.0.38
+
+port:
+  source: 8085
+  target: 8080

@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: bin-calendar
-        image: tjstanford/bin-calendar:${TAG}
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 8080
 
