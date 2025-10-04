@@ -22,30 +22,30 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
-            steps {
-                script {
-                    withEnv(["KUBECONFIG=${KUBECONFIG}"]) {  
-                        sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
-                        sh 'chmod u+x ./kubectl'                      
-                        sh "sed -i 's|\${TAG}|${IMAGE_TAG}|' kubernetes/deployment.yaml"
-                        sh "./kubectl apply -f kubernetes/deployment.yaml"
-                        sh "./kubectl apply -f kubernetes/service.yaml"
-                    }
-                }
-            }
-        }
-
         // stage('Deploy to Kubernetes') {
         //     steps {
         //         script {
         //             withEnv(["KUBECONFIG=${KUBECONFIG}"]) {  
-        //                 sh "curl https://get.helm.sh/helm-v3.19.0-linux-amd64.tar.gz | tar zxf - "
-        //                 sh "linux-amd64/helm upgrade --install bin-calendar ./helmchart --set image.tag=${IMAGE_TAG}"
+        //                 sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+        //                 sh 'chmod u+x ./kubectl'                      
+        //                 sh "sed -i 's|\${TAG}|${IMAGE_TAG}|' kubernetes/deployment.yaml"
+        //                 sh "./kubectl apply -f kubernetes/deployment.yaml"
+        //                 sh "./kubectl apply -f kubernetes/service.yaml"
         //             }
         //         }
         //     }
         // }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    withEnv(["KUBECONFIG=${KUBECONFIG}"]) {  
+                        sh "curl https://get.helm.sh/helm-v3.19.0-linux-amd64.tar.gz | tar zxf - "
+                        sh "linux-amd64/helm upgrade --install bin-calendar ./helmchart --set image.tag=${IMAGE_TAG}"
+                    }
+                }
+            }
+        }
     }
     post {
         always {
