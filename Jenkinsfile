@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Helm Deployment') {
+        stage('Deploy to Kubernetes') {
             steps {
                 script {
                     withEnv(["KUBECONFIG=${KUBECONFIG}"]) {  
