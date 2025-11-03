@@ -19,14 +19,25 @@ class BinCalendarGenerator {
     fileContents+= "PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN\n";
     fileContents+= "VERSION:2.0\n";
 
+    let prev = "";
+    let counter = 0;
     for(var i=0;i<binCalendar.length;i++) {
       var date = new Date(binCalendar[i].date);
       let dateString = this.#dateToYMD(date);   
+      var id = dateString+"_BinCalender_";
+
+      if(prev===id) {
+        counter++;
+      } else {
+        counter=0;
+      }
+
       fileContents+= "BEGIN:VEVENT\n";
       fileContents+= "SUMMARY: "+binCalendar[i].colour+" Bin\n";
       fileContents+= "DTSTART:"+dateString.replace(/-/g, '')+"\n";
-      fileContents+= "UID: "+(dateString+"_BinCalender_").padEnd(36,"0")+"\n";
+      fileContents+= "UID: "+(dateString+"_BinCalender_"+counter.toString()).padEnd(36,0)+"\n";
       fileContents+= "END:VEVENT"+"\n"; 
+      prev = id;
     }
 
     fileContents+= "END:VCALENDAR\n";
