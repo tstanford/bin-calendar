@@ -24,7 +24,7 @@ class FifeCouncilApiClient {
         referer: 'https://www.fife.gov.uk/services/forms/bin-calendar',
         'content-type': 'application/json'
       },
-      body: '{"name":"bin_calendar","data":{"uprn":"320130641"},"email":"","caseid":"","xref":"","xref1":"","xref2":""}'
+      body: '{"name":"bin_calendar","data":{"uprn":"'+uprn+'"},"email":"","caseid":"","xref":"","xref1":"","xref2":""}'
     };
 
     const response = await fetch(url, options);
