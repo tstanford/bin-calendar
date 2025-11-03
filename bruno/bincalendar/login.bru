@@ -1,0 +1,41 @@
+meta {
+  name: login
+  type: http
+  seq: 1
+}
+
+head {
+  url: https://www.fife.gov.uk/api/citizen?preview=false&locale=en
+  body: none
+  auth: inherit
+}
+
+params:query {
+  preview: false
+  locale: en
+}
+
+headers {
+  ~Accept-Encoding: gzip, deflate, br, zstd
+  ~User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:144.0) Gecko/20100101 Firefox/144.0
+  ~Accept: application/json, text/javascript, */*; q=0.01
+  ~Accept-Language: en-US,en;q=0.5
+  ~Content-Type: application/json
+  ~X-Requested-With: XMLHttpRequest
+  ~Alt-Used: www.fife.gov.uk
+  ~Connection: keep-alive
+  ~Referer: https://www.fife.gov.uk/services/forms/bin-calendar
+  ~Cookie: _gat_opt_in=1; _sm_opt_in=1; _ad_opt_in=1; SQ_SYSTEM_SESSION=r2pbd8rf4brphpem3gq9bq3uhuefqm4lvqhk680svpq8lgl2ncn4u7hjikqjsiku48nlkd23fj0ifjmrcjslbi3e294lv7egn5ap4s3; dxp-sessionid=d0465764-b911-45d2-adad-cc992264dcfd; __cf_bm=wZpZMoVCbBpbZGpDSbkvvceFbEBwbtXQrnIhux0Q7AU-1762190446-1.0.1.1-oZec_VGqoTMzMJ8bOFUP.acqRyeXlV5zU0MGhZWIlUlLu6Ljbal8SoUjUC.QkZn.8Y1c08Fe60cgP7hncS9RZ9p.jgar.Ox.Cx_6tX_HS80; DFORMS_SESSIONID=node0nhuk5qe9ycrt1ub148mrwr4wm5914.node0; DformsLocaleCookie=en
+  ~Sec-Fetch-Dest: empty
+  ~Sec-Fetch-Mode: cors
+  ~Sec-Fetch-Site: same-origin
+}
+
+script:post-response {
+  bru.setVar("fifecounciltoken", res.getHeader("authorization"))
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

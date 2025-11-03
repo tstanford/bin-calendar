@@ -1,0 +1,55 @@
+meta {
+  name: get calendar
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://www.fife.gov.uk/api/custom?action=powersuite_bin_calendar_collections&actionedby=bin_calendar&loadform=true&access=citizen&locale=en
+  body: json
+  auth: inherit
+}
+
+params:query {
+  action: powersuite_bin_calendar_collections
+  actionedby: bin_calendar
+  loadform: true
+  access: citizen
+  locale: en
+}
+
+headers {
+  Accept-Encoding: gzip, deflate, br, zstd
+  User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:144.0) Gecko/20100101 Firefox/144.0
+  Accept: application/json, text/javascript, */*; q=0.01
+  Accept-Language: en-US,en;q=0.5
+  Content-Type: application/json
+  Authorization: kdf-8b598b97-8996-47f8-9b86-62de0faa0ddd
+  X-Requested-With: XMLHttpRequest
+  Origin: https://www.fife.gov.uk
+  Alt-Used: www.fife.gov.uk
+  Connection: keep-alive
+  Referer: https://www.fife.gov.uk/services/forms/bin-calendar
+  Cookie: _gat_opt_in=1; _sm_opt_in=1; _ad_opt_in=1; SQ_SYSTEM_SESSION=r2pbd8rf4brphpem3gq9bq3uhuefqm4lvqhk680svpq8lgl2ncn4u7hjikqjsiku48nlkd23fj0ifjmrcjslbi3e294lv7egn5ap4s3; dxp-sessionid=a10e68fa-e871-4709-a5d3-a1392566d7df; __cf_bm=zmh7HsfrZSZ3QUGMhzs32F5lBOMwMVOoDlwAdM7kqQc-1762191445-1.0.1.1-zT6M6WGi0bi4pSWy_gxRpKGqqbw0tYVSJT8i0K50D7t4NUWSonXw7S29p6SQff6hgyukxg1xHjxh_Z8O69znwJzNMlSxMLzapYHLw6RjY0M; DFORMS_SESSIONID=node0nhuk5qe9ycrt1ub148mrwr4wm5914.node0; DformsLocaleCookie=en
+  Sec-Fetch-Dest: empty
+  Sec-Fetch-Mode: cors
+  Sec-Fetch-Site: same-origin
+}
+
+body:json {
+  {
+    "name": "bin_calendar",
+    "data": {
+      "uprn": "320130641"
+    },
+    "email": "",
+    "caseid": "",
+    "xref": "",
+    "xref1": "",
+    "xref2": ""
+  }
+}
+
+settings {
+  encodeUrl: false
+}
