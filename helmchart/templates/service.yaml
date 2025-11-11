@@ -11,3 +11,4 @@ spec:
       port: {{ .Values.port.source }}
       targetPort: {{ .Values.port.target }}
   type: LoadBalancer
+  loadBalancerIP: 192.168.0.50
