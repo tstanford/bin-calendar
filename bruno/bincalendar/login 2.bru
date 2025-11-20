@@ -1,0 +1,35 @@
+meta {
+  name: login 2
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://fife.form.uk.empro.verintcloudservices.com/api/citizen?archived=Y&preview=false&locale=en
+  body: none
+  auth: inherit
+}
+
+params:query {
+  archived: Y
+  preview: false
+  locale: en
+}
+
+headers {
+  User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:144.0) Gecko/20100101 Firefox/144.0
+  Accept: application/json, text/javascript, */*; q=0.01
+  Accept-Language: en-US,en;q=0.5
+  Accept-Encoding: gzip, deflate, br, zstd
+  Content-Type: application/json
+  Origin: https://fife.portal.uk.empro.verintcloudservices.com
+  Connection: keep-alive
+  Referer: https://fife.portal.uk.empro.verintcloudservices.com/
+  Sec-Fetch-Dest: empty
+  Sec-Fetch-Mode: cors
+  Sec-Fetch-Site: same-site
+}
+
+settings {
+  encodeUrl: false
+}

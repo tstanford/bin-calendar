@@ -1,7 +1,7 @@
 class FifeCouncilApiClient {
 
   async login() {
-    const url = 'https://www.fife.gov.uk/api/citizen?preview=false&locale=en';
+    const url = 'https://fife.form.uk.empro.verintcloudservices.com/api/citizen?archived=Y&preview=false&locale=en';
     const options = {
       method: 'HEAD',
       headers: {
@@ -15,7 +15,7 @@ class FifeCouncilApiClient {
   }
 
   async getCalendar(uprn, authToken) {
-    const url = 'https://www.fife.gov.uk/api/custom?action=powersuite_bin_calendar_collections&actionedby=bin_calendar&loadform=true&access=citizen&locale=en';
+    const url = 'https://fife.form.uk.empro.verintcloudservices.com/api/custom?action=powersuite_bin_calendar_collections&actionedby=bin_calendar&loadform=true&access=citizen&locale=en';
     const options = {
       method: 'POST',
       headers: {

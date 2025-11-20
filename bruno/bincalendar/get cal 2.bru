@@ -1,0 +1,53 @@
+meta {
+  name: get cal 2
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://fife.form.uk.empro.verintcloudservices.com/api/custom?action=powersuite_bin_calendar_collections&actionedby=bin_calendar&loadform=true&access=citizen&locale=en
+  body: json
+  auth: inherit
+}
+
+params:query {
+  action: powersuite_bin_calendar_collections
+  actionedby: bin_calendar
+  loadform: true
+  access: citizen
+  locale: en
+}
+
+headers {
+  User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:144.0) Gecko/20100101 Firefox/144.0
+  Accept: application/json, text/javascript, */*; q=0.01
+  Accept-Language: en-US,en;q=0.5
+  Accept-Encoding: gzip, deflate, br, zstd
+  Content-Type: application/json
+  Authorization: kdf-02b08022-a420-44de-a251-7fff857fc81e
+  X-CSRF-TOKEN: m8d75uecWLInICzCaopkWhBtEB0ncmeWv74qzJ5g5ra2IYi4ovce0oGtPYsKQx_1XKdQOyZbPXwRRgG7jN0fqqoDhdeOGLuO
+  Origin: https://fife.portal.uk.empro.verintcloudservices.com
+  Connection: keep-alive
+  Referer: https://fife.portal.uk.empro.verintcloudservices.com/
+  Sec-Fetch-Dest: empty
+  Sec-Fetch-Mode: cors
+  Sec-Fetch-Site: same-site
+}
+
+body:json {
+  {
+    "name": "bin_calendar",
+    "data": {
+      "uprn": "320130641"
+    },
+    "email": "",
+    "caseid": "",
+    "xref": "",
+    "xref1": "",
+    "xref2": ""
+  }
+}
+
+settings {
+  encodeUrl: false
+}
